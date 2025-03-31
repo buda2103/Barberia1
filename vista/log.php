@@ -1,5 +1,11 @@
 <?php
-require '../modelo/config.php'; // Asegurar conexión a la BD
+// Verifica si el archivo existe antes de incluirlo
+$filePath = '../modelo/config.php';
+if (file_exists($filePath)) {
+    require_once $filePath; // Asegura la conexión a la BD
+} else {
+    die('El archivo de configuración no se encuentra disponible.');
+}
 
 // Consulta para obtener el tipo y la acción de los logs
 $sql = "SELECT tipo, accion, COUNT(*) as total FROM logs GROUP BY tipo, accion";

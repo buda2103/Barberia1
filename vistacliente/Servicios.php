@@ -1,7 +1,3 @@
-<?php
-require '../modelo/config.php'; // Archivo de conexión a la base de datos
-session_start(); // Asegúrate de iniciar la sesión
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -109,7 +105,7 @@ session_start(); // Asegúrate de iniciar la sesión
             <i class="bi bi-arrow-left"></i> Volver al Inicio
         </a>
         <a href="../vistacliente/Carrito.php" class="btn-carrito-header">
-            <i class="bi bi-cart"></i> Carrito (<?php echo isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0; ?>)
+            <i class="bi bi-cart"></i> Carrito (<?= isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0; ?>)
         </a>
     </header>
     
@@ -119,22 +115,21 @@ session_start(); // Asegúrate de iniciar la sesión
             <?php
             $sql = "SELECT id, imagen, nombre, precio FROM servicios";
             $result = $conn->query($sql);
-            while ($servicio = $result->fetch_assoc()) {
-                echo "<div class='servicio'>";
-                echo "<img class='imagen-servicio' src='" . $servicio['imagen'] . "' alt='" . $servicio['nombre'] . "'>";
-                echo "<p class='servicio-nombre'>" . $servicio['nombre'] . "</p>";
-                echo "<p class='servicio-precio'>$" . number_format($servicio['precio'], 2) . "</p>";
-                echo "<div class='btn-container'>";
-                echo "<button class='btn-carrito' onclick='agregarAlCarrito(".$servicio['id'].")'>";
-                echo "<i class='bi bi-cart-plus'></i> Añadir al carrito";
-                echo "</button>";
-                echo "<button class='btn-comprar' onclick='comprarAhora(".$servicio['id'].")'>";
-                echo "<i class='bi bi-bag-check'></i> Comprar ahora";
-                echo "</button>";
-                echo "</div>";
-                echo "</div>";
-            }
-            ?>
+            while ($servicio = $result->fetch_assoc()) : ?>
+                <div class="servicio">
+                    <img class="imagen-servicio" src="<?= $servicio['imagen']; ?>" alt="<?= $servicio['nombre']; ?>">
+                    <p class="servicio-nombre"><?= $servicio['nombre']; ?></p>
+                    <p class="servicio-precio">$<?= number_format($servicio['precio'], 2); ?></p>
+                    <div class="btn-container">
+                        <button class="btn-carrito" onclick="agregarAlCarrito(<?= $servicio['id']; ?>)">
+                            <i class="bi bi-cart-plus"></i> Añadir al carrito
+                        </button>
+                        <button class="btn-comprar" onclick="comprarAhora(<?= $servicio['id']; ?>)">
+                            <i class="bi bi-bag-check"></i> Comprar ahora
+                        </button>
+                    </div>
+                </div>
+            <?php endwhile; ?>
         </div>
     </div>
 

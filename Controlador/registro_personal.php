@@ -19,9 +19,10 @@ function registrarLogDB($tipo, $accion, $usuario) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST["nombre"];
-    $correo = $_POST["correo"];
-    $celular = $_POST["celular"];
+    // Verificar si las variables existen en el POST antes de usarlas
+    $nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : '';
+    $correo = isset($_POST["correo"]) ? $_POST["correo"] : '';
+    $celular = isset($_POST["celular"]) ? $_POST["celular"] : '';
     
     $sql = "INSERT INTO personal (correo, nombre, celular) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);

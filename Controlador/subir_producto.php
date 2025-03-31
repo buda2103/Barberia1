@@ -19,29 +19,42 @@ function registrarLogDB($tipo, $accion, $usuario) {
     $stmt->execute();
 }
 
-// Verificación CSRF (Si se implementa un token de sesión)
+// Verificación CSRF
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
+    
+    // Validar que los datos existen
+    if (!isset($_POST["nombre"], $_POST["precio"], $_FILES["imagen"])) {
+        exit("Faltan datos en la solicitud.");
+    }
+    
     // Validación de datos de entrada
     $nombre = trim($_POST["nombre"]);
-    $precio = filter_var($_POST["precio"], FILTER_VALIDATE_FLOAT);
-    $carpetaDestino = "../subimag/"; // Carpeta donde se guardarán las imágenes
-
-    // Verificar si la carpeta 'subimag' existe, si no, crearla
-    if (!is_dir($carpetaDestino)) {
-        mkdir($carpetaDestino, 0777, true); // Crear carpeta con permisos adecuados
+    if (empty($nombre) || strlen($nombre) > 100) {
+        exit("Nombre no válido.");
     }
 
-    // Verificar que el archivo sea una imagen válida
+    $precio = filter_var($_POST["precio"], FILTER_VALIDATE_FLOAT);
+    if ($precio === false || $precio <= 0) {
+        exit("Precio no válido.");
+    }
+
+    $carpetaDestino = "../subimag/";
+    if (!is_dir($carpetaDestino)) {
+        mkdir($carpetaDestino, 0777, true);
+    }
+
+    $usuario = isset($_SESSION["user"]) ? htmlspecialchars($_SESSION["user"], ENT_QUOTES, 'UTF-8') : "Desconocido";
+
     if (isset($_FILES["imagen"]) && $_FILES["imagen"]["error"] === UPLOAD_ERR_OK) {
         $imagenTipo = mime_content_type($_FILES["imagen"]["tmp_name"]);
         $tiposPermitidos = ['image/jpeg', 'image/png', 'image/gif'];
 
         if (in_array($imagenTipo, $tiposPermitidos)) {
-            $imagen = $carpetaDestino . basename($_FILES["imagen"]["name"]);
-            $usuario = isset($_SESSION["user"]) ? $_SESSION["user"] : "Desconocido";
+            $extension = pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION);
+            $nuevoNombre = uniqid("img_", true) . "." . $extension;
+            $imagen = $carpetaDestino . $nuevoNombre;
 
             if (move_uploaded_file($_FILES["imagen"]["tmp_name"], $imagen)) {
-                // Insertar datos en la base de datos
                 $sql = "INSERT INTO servicios (nombre, precio, imagen) VALUES (?, ?, ?)";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("sds", $nombre, $precio, $imagen);
@@ -49,7 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['csrf_token']) && $_POS
                 if ($stmt->execute()) {
                     registrarLogArchivo("Aviso", "Producto agregado: $nombre", $usuario);
                     registrarLogDB("Aviso", "Producto agregado: $nombre", $usuario);
-                    header("Location:../vista/Index.php");
+                    header("Location: ../vista/Index.php");
+                    exit();
                 } else {
                     registrarLogArchivo("Error", "Error al agregar producto: $nombre", $usuario);
                     registrarLogDB("Error", "Error al agregar producto: $nombre", $usuario);
@@ -66,7 +80,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['csrf_token']) && $_POS
         registrarLogArchivo("Error", "No se recibió una imagen válida", $usuario);
         registrarLogDB("Error", "No se recibió una imagen válida", $usuario);
     }
+
+    // Regenerar token CSRF para mayor seguridad
+    unset($_SESSION['csrf_token']);
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+
 } else {
-    echo "Solicitud no válida o CSRF token inválido.";
+    exit("Solicitud no válida o CSRF token inválido.");
 }
 ?>

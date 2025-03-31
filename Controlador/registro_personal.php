@@ -1,5 +1,11 @@
 <?php
 require '../modelo/config.php'; // Conexión a la base de datos
+session_start();
+
+// Generar un token CSRF si no existe
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
 
 // Función para registrar en el archivo log
 function registrarLogArchivo($tipo, $accion, $usuario) {
@@ -19,24 +25,33 @@ function registrarLogDB($tipo, $accion, $usuario) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verificar si las variables existen en el POST antes de usarlas
-    $nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : '';
-    $correo = isset($_POST["correo"]) ? $_POST["correo"] : '';
-    $celular = isset($_POST["celular"]) ? $_POST["celular"] : '';
-    
-    $sql = "INSERT INTO personal (correo, nombre, celular) VALUES (?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $correo, $nombre, $celular);
-    
-    if ($stmt->execute()) {
-        registrarLogArchivo("Aviso", "Personal registrado exitosamente", $nombre);
-        registrarLogDB("Aviso", "Personal registrado exitosamente", $nombre);
-        header("Location: ../index.php");
-        exit();
+    // Verificar token CSRF
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("Solicitud no válida.");
+    }
+
+    // Limpiar y validar entrada
+    $nombre = isset($_POST["nombre"]) ? trim($_POST["nombre"]) : '';
+    $correo = isset($_POST["correo"]) ? filter_var($_POST["correo"], FILTER_VALIDATE_EMAIL) : '';
+    $celular = isset($_POST["celular"]) ? preg_replace('/\D/', '', $_POST["celular"]) : ''; // Solo números
+
+    if ($nombre && $correo && $celular) {
+        $sql = "INSERT INTO personal (correo, nombre, celular) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sss", $correo, $nombre, $celular);
+
+        if ($stmt->execute()) {
+            registrarLogArchivo("Aviso", "Personal registrado exitosamente", $nombre);
+            registrarLogDB("Aviso", "Personal registrado exitosamente", $nombre);
+            header("Location: ../index.php");
+            exit();
+        } else {
+            registrarLogArchivo("Error", "Error al registrar personal", $nombre);
+            registrarLogDB("Error", "Error al registrar personal", $nombre);
+        }
     } else {
-        $error = "Error al registrar personal";
-        registrarLogArchivo("Aviso", "Error al registrar personal", $nombre);
-        registrarLogDB("Aviso", "Error al registrar personal", $nombre);
+        registrarLogArchivo("Error", "Datos inválidos al registrar personal", "Desconocido");
+        registrarLogDB("Error", "Datos inválidos al registrar personal", "Desconocido");
     }
 }
 ?>

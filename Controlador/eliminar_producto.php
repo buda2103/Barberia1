@@ -18,21 +18,30 @@ function registrarLogDB($tipo, $accion, $usuario) {
 }
 
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $usuario = isset($_SESSION["user"]) ? $_SESSION["user"] : "Desconocido";
+    $id = filter_var($_GET['id'], FILTER_VALIDATE_INT); // Sanitización del ID
+    $usuario = isset($_SESSION["user"]) ? htmlspecialchars($_SESSION["user"], ENT_QUOTES, 'UTF-8') : "Desconocido"; // Evita XSS
 
-    $sql = "DELETE FROM servicios WHERE id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
+    if ($id !== false) {
+        $sql = "DELETE FROM servicios WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
 
-    if ($stmt->execute()) {
-        registrarLogArchivo("Aviso", "Producto eliminado con ID: $id", $usuario);
-        registrarLogDB("Aviso", "Producto eliminado con ID: $id", $usuario);
+        if ($stmt->execute()) {
+            registrarLogArchivo("Aviso", "Producto eliminado con ID: $id", $usuario);
+            registrarLogDB("Aviso", "Producto eliminado con ID: $id", $usuario);
+        } else {
+            registrarLogArchivo("Error", "Error al eliminar producto con ID: $id", $usuario);
+            registrarLogDB("Error", "Error al eliminar producto con ID: $id", $usuario);
+        }
     } else {
-        registrarLogArchivo("Error", "Error al eliminar producto con ID: $id", $usuario);
-        registrarLogDB("Error", "Error al eliminar producto con ID: $id", $usuario);
+        registrarLogArchivo("Error", "Intento de eliminación con ID inválido", $usuario);
+        registrarLogDB("Error", "Intento de eliminación con ID inválido", $usuario);
     }
 
-    header("Location:../vista/Servicios.php");
+    header("Location: ../vista/Servicios.php");
+    exit();
+} else {
+    header("Location: ../vista/Servicios.php");
+    exit();
 }
 ?>

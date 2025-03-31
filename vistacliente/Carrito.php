@@ -1,6 +1,13 @@
 <?php
-require '../modelo/config.php';
 session_start();
+
+// Asegurarse de que el archivo de configuración exista antes de incluirlo
+$configFile = '../modelo/config.php';
+if (!file_exists($configFile)) {
+    die("Error: Archivo de configuración no encontrado.");
+}
+
+require_once $configFile; // Conexión a la base de datos
 ?>
 <!DOCTYPE html>
 <html lang="es">

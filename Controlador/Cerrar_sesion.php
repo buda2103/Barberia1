@@ -1,6 +1,6 @@
 <?php
 session_start();
 session_destroy();
-header("Location:../index.php"); // Redirige al login después de cerrar sesión
+echo "<script>window.location.href = '../index.php';</script>";
 exit();
 ?>

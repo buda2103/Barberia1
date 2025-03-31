@@ -1,6 +1,8 @@
 <?php
+
 session_start();
 require '../modelo/config.php';
+
 
 function registrarLogArchivo($tipo, $accion, $usuario) {
     $logfile = 'log.txt';

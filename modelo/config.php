@@ -8,8 +8,12 @@ $conn = new mysqli($servername, $username, $password, $database);
 
 // Verificar si la conexión fue exitosa.
 if ($conn->connect_error) {
-    error_log("Error de conexión: " . $conn->connect_error); // Registrar el error en el log del servidor.
-    echo "Hubo un problema con la conexión a la base de datos."; // Mensaje genérico para el usuario.
+    // Registrar el error en el log del servidor.
+    error_log("Error de conexión: " . $conn->connect_error); 
+    
+    // Mensaje genérico para el usuario.
+    echo "Hubo un problema con la conexión a la base de datos."; 
+    
     exit();
 }
 ?>

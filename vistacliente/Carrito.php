@@ -206,7 +206,7 @@ require_once $configFile; // Conexión a la base de datos
                     <tbody>
                         <?php 
                         $total = 0;
-                        foreach ($_SESSION['carrito'] as $key => $item): 
+                        foreach ($_SESSION['carrito'] as $key => $item):
                             // Asegurarse de que el precio y la cantidad sean numéricos y no nulos
                             $precio = isset($item['precio']) ? (float)$item['precio'] : 0;
                             $cantidad = isset($item['cantidad']) ? (int)$item['cantidad'] : 1;

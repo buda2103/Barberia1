@@ -1,7 +1,26 @@
 <?php
 require_once '../modelo/config.php';
 
-$barberoId = $_GET['barbero_id'] ?? null;
+// Clase para manejar la entrada de los formularios
+class EntradaFormulario {
+    // Función para obtener y sanitizar datos de $_GET
+    public static function obtener($clave, $tipo = 'string') {
+        if (isset($_GET[$clave])) {
+            $valor = trim($_GET[$clave]);
+
+            // Filtrar y validar según el tipo de dato
+            if ($tipo === 'int') {
+                return filter_var($valor, FILTER_VALIDATE_INT);
+            } elseif ($tipo === 'string') {
+                return $valor;
+            }
+        }
+        return null;
+    }
+}
+
+// Obtener el barberoId utilizando la clase EntradaFormulario
+$barberoId = EntradaFormulario::obtener('barbero_id', 'int');
 
 if ($barberoId) {
     $query = "SELECT s.id, s.nombre 

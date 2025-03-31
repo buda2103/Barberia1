@@ -7,6 +7,26 @@ if (!isset($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
+// Clase para manejar la entrada de los formularios
+class EntradaFormulario {
+    // Función para obtener y sanitizar datos de $_POST
+    public static function obtener($clave, $tipo = 'string') {
+        if (isset($_POST[$clave])) {
+            $valor = trim($_POST[$clave]);
+
+            // Filtrar y validar según el tipo de dato
+            if ($tipo === 'email') {
+                return filter_var($valor, FILTER_VALIDATE_EMAIL);
+            } elseif ($tipo === 'string') {
+                return $valor;
+            } elseif ($tipo === 'int') {
+                return filter_var($valor, FILTER_VALIDATE_INT);
+            }
+        }
+        return null;
+    }
+}
+
 // Función para registrar en el archivo log
 function registrarLogArchivo($tipo, $accion, $usuario) {
     $logfile = 'log.txt';
@@ -30,10 +50,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Solicitud no válida.");
     }
 
-    // Limpiar y validar entrada
-    $nombre = isset($_POST["nombre"]) ? trim($_POST["nombre"]) : '';
-    $correo = isset($_POST["correo"]) ? filter_var($_POST["correo"], FILTER_VALIDATE_EMAIL) : '';
-    $celular = isset($_POST["celular"]) ? preg_replace('/\D/', '', $_POST["celular"]) : ''; // Solo números
+    // Limpiar y validar entrada utilizando la clase EntradaFormulario
+    $nombre = EntradaFormulario::obtener("nombre");
+    $correo = EntradaFormulario::obtener("correo", "email");
+    $celular = EntradaFormulario::obtener("celular", "int");
 
     if ($nombre && $correo && $celular) {
         $sql = "INSERT INTO personal (correo, nombre, celular) VALUES (?, ?, ?)";

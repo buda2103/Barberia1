@@ -1,6 +1,12 @@
 <?php
 require_once '../modelo/config.php';
 
+// Función para devolver respuestas JSON
+function sendJsonResponse($success, $message) {
+    echo json_encode(['success' => $success, 'message' => $message]);
+    exit; // Asegúrate de detener la ejecución después de enviar la respuesta
+}
+
 $data = json_decode(file_get_contents('php://input'), true);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($data)) {
@@ -19,11 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($data)) {
     $stmt->bind_param("iiiss", $usuarioId, $barberoId, $servicioId, $sucursal, $tipoPago);
     
     if ($stmt->execute()) {
-        echo json_encode(['success' => true, 'message' => 'Cita agendada correctamente']);
+        sendJsonResponse(true, 'Cita agendada correctamente');
     } else {
-        echo json_encode(['success' => false, 'message' => 'Error al agendar la cita']);
+        sendJsonResponse(false, 'Error al agendar la cita');
     }
 } else {
-    echo json_encode(['success' => false, 'message' => 'Datos inválidos']);
+    sendJsonResponse(false, 'Datos inválidos');
 }
 ?>

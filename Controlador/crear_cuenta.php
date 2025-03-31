@@ -1,4 +1,7 @@
 <?php
+// Iniciar buffer de salida para evitar problemas con header()
+ob_start();
+
 require '../modelo/config.php'; // Conexión a la base de datos
 
 // Función para registrar en el archivo log
@@ -19,9 +22,10 @@ function registrarLogDB($tipo, $accion, $usuario) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST["nombre"];
-    $correo = $_POST["correo"];
-    $username = $_POST["username"];
+    // Sanitización de inputs
+    $nombre = filter_input(INPUT_POST, 'nombre', FILTER_SANITIZE_STRING);
+    $correo = filter_input(INPUT_POST, 'correo', FILTER_SANITIZE_EMAIL);
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $password = $_POST["password"];
     $confirm_password = $_POST["confirm_password"];
 
@@ -39,12 +43,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->execute()) {
             registrarLogArchivo("Aviso", "Cuenta creada exitosamente", $username);
             registrarLogDB("Aviso", "Cuenta creada exitosamente", $username);
+            
+            // Redirección segura
+            ob_end_clean(); // Limpiar buffer antes de header
             header("Location: ../index.php");
             exit();
         } else {
-            $error = "Error al registrar usuario";
-            registrarLogArchivo("Aviso", "Error al registrar usuario", $username);
-            registrarLogDB("Aviso", "Error al registrar usuario", $username);
+            $error = "Error al registrar usuario: " . $conn->error;
+            registrarLogArchivo("Error", "Error al registrar usuario: " . $conn->error, $username);
+            registrarLogDB("Error", "Error al registrar usuario", $username);
         }
     }
 }

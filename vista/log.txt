@@ -1,0 +1,133 @@
+[2025-02-19 12:05:50] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-19 16:36:17] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-19 16:36:31] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-19 16:38:31] [Aviso] [buda] - Error de contraseña incorrecta
+[2025-02-19 16:38:42] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-19 16:41:33] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-19 19:26:42] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-19 19:36:12] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-20 01:41:58] [Error] [buda] - Contraseña incorrecta
+[2025-02-20 01:42:15] [Error] [buda] - Contraseña incorrecta
+[2025-02-20 01:42:42] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-20 06:30:41] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-20 07:32:00] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-20 08:01:30] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-20 08:47:34] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-20 19:40:34] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-26 07:38:30] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-26 19:11:53] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-26 19:16:37] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-27 00:15:54] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-27 03:52:54] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-28 19:11:14] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-02-28 19:12:51] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-01 00:53:02] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-01 01:49:43] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-01 02:03:12] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-01 02:04:30] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-01 02:19:51] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-01 02:53:34] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-01 03:07:29] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-01 03:18:21] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-03 11:56:15] [Aviso] [admin] - Usuario no encontrado
+[2025-03-03 12:03:55] [Aviso] [-´0{-'] - Usuario no encontrado
+[2025-03-03 12:04:09] [Aviso] [admin] - Usuario no encontrado
+[2025-03-03 12:04:21] [Aviso] [admin] - Usuario no encontrado
+[2025-03-03 12:04:27] [Aviso] [garciarobledojuan14@gmail.com] - Usuario no encontrado
+[2025-03-03 12:06:50] [Aviso] [garciarobledojuan14@gmail.com] - Usuario no encontrado
+[2025-03-03 12:16:52] [Aviso] [jgarcia] - Usuario no encontrado
+[2025-03-03 12:16:56] [Aviso] [garciarobledojuan14@gmail.com] - Usuario no encontrado
+[2025-03-03 12:18:20] [Aviso] [garciarobledojuan14@gmail.com] - Usuario no encontrado
+[2025-03-03 12:18:25] [Aviso] [jgarcia] - Usuario no encontrado
+[2025-03-03 12:20:37] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-03 12:22:38] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-03 12:22:38] [Aviso] [garciarobledojuan14@gmail.com] - Usuario no encontrado
+[2025-03-03 12:22:42] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-03 12:22:42] [Aviso] [jgarcia] - Usuario no encontrado
+[2025-03-03 12:36:38] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-03 12:36:38] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-03 12:41:51] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-03 12:41:54] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-03 12:41:54] [Aviso] [garciarobledojuan14@gmail.com] - Usuario no encontrado
+[2025-03-03 12:42:21] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-03 12:42:21] [Aviso] [uudjm6utrjk] - Usuario no encontrado
+[2025-03-03 12:53:29] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-03 12:53:33] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-03 12:53:33] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-03 12:54:15] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-03 12:54:19] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-03 12:54:19] [Aviso] [garciarobledojuan14@gmail.com] - Usuario no encontrado
+[2025-03-03 12:54:39] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-03 12:54:39] [Aviso] [buda] - Error de contraseña incorrecta
+[2025-03-04 00:23:14] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 00:23:21] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 00:23:21] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-04 00:49:24] [] [Inicio de sesión exitoso] - Aviso
+[2025-03-04 00:49:51] [] [Inicio de sesión exitoso] - Aviso
+[2025-03-04 00:50:55] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 00:52:58] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 00:52:59] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 00:55:07] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 00:55:38] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 00:56:34] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 00:57:56] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 01:00:27] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 01:00:28] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 01:00:28] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 01:00:31] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 01:03:31] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 01:03:32] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 01:03:32] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 01:05:32] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 01:05:37] [Usuario ID: Inicio de sesión exitoso] - Aviso
+[2025-03-04 01:07:39] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 01:07:47] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 01:07:48] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-04 01:15:56] [INFO] [desconocido] - Servicio eliminado con ID: 9
+[2025-03-04 01:19:08] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 01:19:12] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 01:19:12] [Aviso] [garciarobledojuan14@gmail.com] - Usuario no encontrado
+[2025-03-04 01:19:24] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 01:19:24] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-04 01:24:22] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 01:24:26] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 01:24:26] [Aviso] [Administrador] - Usuario no encontrado
+[2025-03-04 01:24:53] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 01:24:53] [Aviso] [Administrador] - Usuario no encontrado
+[2025-03-04 01:25:09] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 01:25:09] [Aviso] [buda] - Error de contraseña incorrecta
+[2025-03-04 01:25:27] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 01:25:27] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-04 01:25:45] [INFO] [desconocido] - Servicio agregado: barba por $1234
+[2025-03-04 01:27:07] [INFO] [desconocido] - Servicio agregado: barba por $1234
+[2025-03-04 01:28:34] [INFO] [desconocido] - Servicio agregado: barba por $1234
+[2025-03-04 01:28:40] [INFO] [desconocido] - Servicio eliminado con ID: 10
+[2025-03-04 01:28:43] [INFO] [desconocido] - Servicio eliminado con ID: 12
+[2025-03-04 01:28:44] [INFO] [desconocido] - Servicio eliminado con ID: 13
+[2025-03-04 01:28:46] [INFO] [desconocido] - Servicio eliminado con ID: 14
+[2025-03-04 01:28:59] [INFO] [desconocido] - Servicio agregado: barba por $1234
+[2025-03-04 01:28:59] [INFO] [desconocido] - Servicio eliminado con ID: 14
+[2025-03-04 01:58:14] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 01:58:17] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 01:58:17] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-04 19:51:42] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 19:51:45] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 19:51:45] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-04 20:17:41] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 20:17:45] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 20:17:45] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-04 20:25:55] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 20:25:59] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-04 20:26:00] [Aviso] [ed] - Inicio de sesión exitoso
+[2025-03-05 00:32:31] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-05 00:37:03] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-05 00:37:03] [Aviso] [jgarcia] - Usuario no encontrado
+[2025-03-05 00:37:31] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-05 00:37:31] [Aviso] [buda] - Error de contraseña incorrecta
+[2025-03-05 00:40:31] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-05 00:40:31] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-07 23:34:01] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-07 23:34:05] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-07 23:34:05] [Aviso] [buda] - Inicio de sesión exitoso
+[2025-03-14 23:12:53] [Aviso] [usuario123] - Inicio de sesión exitoso
+[2025-03-28 06:32:01] [Aviso] [usuario123] - Inicio de sesión exitoso

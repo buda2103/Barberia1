@@ -1,0 +1,36 @@
+[2025-02-20 06:52:14] [Aviso] [buda] - Producto agregado: Juan
+[2025-02-20 07:21:54] [Aviso] [buda] - Producto eliminado con ID: 1
+[2025-02-20 07:21:59] [Aviso] [buda] - Producto eliminado con ID: 1
+[2025-02-20 07:22:44] [Aviso] [buda] - Producto eliminado con ID: 1
+[2025-02-20 07:22:47] [Aviso] [buda] - Producto eliminado con ID: 1
+[2025-02-20 07:22:51] [Aviso] [buda] - Producto eliminado con ID: 1
+[2025-02-20 07:22:55] [Aviso] [buda] - Producto eliminado con ID: 1
+[2025-02-20 07:23:14] [Aviso] [buda] - Producto eliminado con ID: 1
+[2025-02-20 07:25:17] [Aviso] [buda] - Producto modificado: ID 2, Nombre: barba, Precio: 20.02
+[2025-02-20 07:25:29] [Aviso] [buda] - Producto eliminado con ID: 2
+[2025-02-20 07:25:33] [Aviso] [buda] - Producto eliminado con ID: 3
+[2025-02-20 07:52:51] [Aviso] [buda] - Producto agregado: Corte de Pelo
+[2025-02-20 07:54:25] [Aviso] [buda] - Producto agregado: barba
+[2025-02-20 07:56:59] [Aviso] [buda] - Producto modificado: ID 7, Nombre: Corte de Pelo, Precio: 100.00
+[2025-02-20 07:57:49] [Aviso] [buda] - Producto eliminado con ID: 7
+[2025-02-28 19:12:24] [Aviso] [buda] - Producto agregado: barba
+[2025-02-28 19:12:57] [Aviso] [buda] - Producto eliminado con ID: 8
+[2025-03-01 01:55:20] [Aviso] [buda] - Producto agregado: Desvanecido
+[2025-03-01 02:11:18] [Aviso] [ed] - Cuenta creada exitosamente
+[2025-03-01 02:53:11] [Aviso] [Juanw] - Personal registrado exitosamente
+[2025-03-01 02:54:01] [Aviso] [Juan] - Personal registrado exitosamente
+[2025-03-04 01:11:29] [Aviso] [buda] - Producto agregado: Corte de Pelo
+[2025-03-04 01:13:14] [Aviso] [buda] - Producto eliminado con ID: 11
+[2025-03-04 01:30:16] [Aviso] [buda] - Producto eliminado con ID: 15
+[2025-03-04 01:30:30] [Aviso] [buda] - Producto agregado: barba
+[2025-03-04 01:35:13] [Aviso] [buda] - Producto agregado: Pedro
+[2025-03-04 20:17:02] [Aviso] [buda] - Producto eliminado con ID: 16
+[2025-03-04 20:17:17] [Aviso] [buda] - Producto eliminado con ID: 17
+[2025-03-04 20:18:45] [Aviso] [buda] - Producto agregado: barba
+[2025-03-04 20:25:01] [Aviso] [er] - Las contraseñas no coinciden
+[2025-03-04 20:25:32] [Aviso] [er] - Las contraseñas no coinciden
+[2025-03-04 20:25:36] [Aviso] [er] - Las contraseñas no coinciden
+[2025-03-04 20:44:42] [Aviso] [ed] - Producto eliminado con ID: 18
+[2025-03-04 20:44:57] [Aviso] [ed] - Producto agregado: barba
+[2025-03-07 23:34:11] [Aviso] [buda] - Producto eliminado con ID: 19
+[2025-03-07 23:34:29] [Aviso] [buda] - Producto agregado: barba

@@ -1,0 +1,89 @@
+body {
+    background-color: #121212;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    padding-top: 70px;
+}
+
+.navbar {
+    background: linear-gradient(90deg, rgb(128, 21, 21), #8B0000);
+}
+
+.navbar-brand {
+    font-size: 30px;
+    font-style: italic;
+}
+
+.nav-link {
+    font-size: 22px;
+}
+
+.carousel-item {
+    height: 100vh;
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.carousel-caption h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px black;
+}
+
+.simplybook-widget-button {
+    position: fixed;
+    right: 20px;
+    bottom: 55%;
+    padding: 15px 25px;
+    background-color: rgb(255, 198, 43);
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+    opacity: 1;
+    text-decoration: none;
+    text-align: center;
+}
+.carousel-caption {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.simplybook-widget-button:hover {
+    background-color: rgb(255, 165, 0);
+    transform: translateY(-5px);
+}
+
+footer {
+    background-color: #222;
+    text-align: center;
+    padding: 20px 0;
+    color: white;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}

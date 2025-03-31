@@ -2,26 +2,9 @@
 require '../modelo/config.php';
 session_start();
 
-// Verificar si el token CSRF es válido
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'], $_POST['csrf_token'])) {
-    if (!isset($_SESSION['csrf_token']) || $_SESSION['csrf_token'] !== $_POST['csrf_token']) {
-        echo json_encode([
-            'success' => false,
-            'message' => 'Token CSRF inválido'
-        ]);
-        exit();
-    }
-
-    $servicio_id = filter_var($_POST['id'], FILTER_VALIDATE_INT);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+    $servicio_id = intval($_POST['id']);
     
-    if (!$servicio_id) {
-        echo json_encode([
-            'success' => false,
-            'message' => 'ID de servicio inválido'
-        ]);
-        exit();
-    }
-
     // Obtener información del servicio
     $sql = "SELECT id, nombre, precio FROM servicios WHERE id = ?";
     $stmt = $conn->prepare($sql);
@@ -56,15 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'], $_POST['csrf_to
                 'cantidad' => 1
             ];
         }
-
-        // Regenerar token CSRF para la próxima solicitud
-        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         
         echo json_encode([
             'success' => true,
             'message' => 'Servicio añadido al carrito',
-            'carrito_count' => count($_SESSION['carrito']),
-            'csrf_token' => $_SESSION['csrf_token'] // Enviar nuevo token
+            'carrito_count' => count($_SESSION['carrito'])
         ]);
     } else {
         echo json_encode([

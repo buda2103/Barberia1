@@ -207,16 +207,19 @@ require_once $configFile; // Conexión a la base de datos
                         <?php 
                         $total = 0;
                         foreach ($_SESSION['carrito'] as $key => $item): 
-                            $subtotal = $item['precio'] * $item['cantidad'];
+                            // Asegurarse de que el precio y la cantidad sean numéricos y no nulos
+                            $precio = isset($item['precio']) ? (float)$item['precio'] : 0;
+                            $cantidad = isset($item['cantidad']) ? (int)$item['cantidad'] : 1;
+                            $subtotal = $precio * $cantidad;
                             $total += $subtotal;
                         ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($item['nombre']); ?></td>
-                                <td>$<?php echo number_format($item['precio'], 2); ?></td>
+                                <td>$<?php echo number_format($precio, 2); ?></td>
                                 <td>
                                     <form action="../controlador/actualizar_carrito.php" method="post" class="cantidad-form">
                                         <input type="hidden" name="id" value="<?php echo $item['id']; ?>">
-                                        <input type="number" name="cantidad" value="<?php echo $item['cantidad']; ?>" min="1" class="cantidad-input">
+                                        <input type="number" name="cantidad" value="<?php echo $cantidad; ?>" min="1" class="cantidad-input">
                                         <button type="submit" class="btn-actualizar" title="Actualizar cantidad">
                                             <i class="bi bi-arrow-clockwise"></i>
                                         </button>

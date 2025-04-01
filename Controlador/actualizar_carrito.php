@@ -7,18 +7,22 @@ session_start();
 
 // Clase Carrito para gestionar el carrito de compras
 class Carrito {
-    // Inicializa el carrito en la sesión si no existe
+    /** 
+     * Inicializa el carrito en la sesión si no existe.
+     */
     public static function iniciarCarrito() {
         if (!self::existeEnSesion('carrito')) {
             self::establecerEnSesion('carrito', []);
         }
     }
 
-    // Agrega o actualiza un item en el carrito
+    /** 
+     * Agrega o actualiza un item en el carrito.
+     */
     public static function agregarItem($id, $cantidad) {
         $item_encontrado = false;
         foreach (self::obtenerDeSesion('carrito') as &$item) {
-            if ($item['id'] == $id) {
+            if ($item['id'] === $id) {
                 $item['cantidad'] = $cantidad;
                 $item_encontrado = true;
                 break;
@@ -30,23 +34,31 @@ class Carrito {
         }
     }
 
-    // Método principal para actualizar el carrito
+    /** 
+     * Método principal para actualizar el carrito.
+     */
     public static function actualizarCarrito($id, $cantidad) {
         self::iniciarCarrito();
         self::agregarItem($id, $cantidad);
     }
 
-    // Verifica si existe una clave en la sesión
+    /** 
+     * Verifica si existe una clave en la sesión.
+     */
     private static function existeEnSesion($clave) {
         return isset($_SESSION[$clave]);
     }
 
-    // Obtiene un valor de la sesión
+    /** 
+     * Obtiene un valor de la sesión.
+     */
     private static function obtenerDeSesion($clave) {
         return $_SESSION[$clave] ?? null;
     }
 
-    // Establece un valor en la sesión
+    /** 
+     * Establece un valor en la sesión.
+     */
     private static function establecerEnSesion($clave, $valor) {
         $_SESSION[$clave] = $valor;
     }
@@ -63,7 +75,7 @@ if (validarSolicitud()) {
     $servicio_id = filter_var($_POST['id'], FILTER_VALIDATE_INT, [
         'options' => ['min_range' => 1]
     ]);
-    
+
     $cantidad = filter_var($_POST['cantidad'], FILTER_VALIDATE_INT, [
         'options' => ['min_range' => 1]
     ]);

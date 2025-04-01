@@ -18,8 +18,8 @@ function registrarLogDB($tipo, $accion, $usuario) {
 }
 
 if (isset($_GET['id'])) {
-    $id = filter_var($_GET['id'], FILTER_VALIDATE_INT); // Sanitización del ID
-    $usuario = isset($_SESSION["user"]) ? htmlspecialchars($_SESSION["user"], ENT_QUOTES, 'UTF-8') : "Desconocido"; // Evita XSS
+    $id = filter_var($_GET['id'], FILTER_VALIDATE_INT); // Sanitización del ID.
+    $usuario = isset($_SESSION["user"]) ? htmlspecialchars($_SESSION["user"], ENT_QUOTES, 'UTF-8') : "Desconocido"; // Evita XSS.
 
     if ($id !== false) {
         $sql = "DELETE FROM servicios WHERE id = ?";

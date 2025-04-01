@@ -9,7 +9,10 @@ $result = $conn->query($sql);
 
 $servicios = [];
 
-if ($result->num_rows > 0) {
+if ($result->num_rows === 0) {
+    // Si no hay resultados, se devuelve un array vacío o un mensaje de error
+    $servicios = [];
+} else {
     while ($row = $result->fetch_assoc()) {
         $servicios[] = $row;
     }

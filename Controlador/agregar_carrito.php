@@ -5,9 +5,18 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $servicio_id = intval($_POST['id']);
     
-    // Obtener información del servicio
+    // Obtener información del servicio con manejo de errores
     $sql = "SELECT id, nombre, precio FROM servicios WHERE id = ?";
     $stmt = $conn->prepare($sql);
+    
+    if ($stmt === false) {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Error en la preparación de la consulta'
+        ]);
+        exit;
+    }
+
     $stmt->bind_param("i", $servicio_id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -20,8 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
             $_SESSION['carrito'] = [];
         }
         
-        // Verificar si el servicio ya está en el carrito
+        // Usar un índice para verificar la existencia del servicio en el carrito
         $encontrado = false;
+        
         foreach ($_SESSION['carrito'] as &$item) {
             if ($item['id'] == $servicio_id) {
                 $item['cantidad'] += 1;
@@ -32,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         
         // Si no está en el carrito, agregarlo
         if (!$encontrado) {
-            $_SESSION['carrito'][] = [
+            $_SESSION['carrito'][$servicio_id] = [
                 'id' => $servicio['id'],
                 'nombre' => $servicio['nombre'],
                 'precio' => $servicio['precio'],

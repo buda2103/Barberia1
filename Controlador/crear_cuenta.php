@@ -2,7 +2,8 @@
 // Iniciar buffer de salida para evitar problemas con header()
 ob_start();
 
-require '../modelo/config.php'; // Conexión a la base de datos
+require '../modelo/config.php'; 
+// Conexión a la base de datos
 
 // Función para registrar en el archivo log
 function registrarLogArchivo($tipo, $accion, $usuario) {
